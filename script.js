@@ -8,17 +8,6 @@ function isThereCat(animals) {
 console.log(isThereCat("dog, zebra, dog, cat"));
 console.log(isThereCat("dog, zebra, dog"));
 
-function gentleSum(a, b) {
-  if (parseInt(a) || parseInt(b) === NaN) {
-    return parseInt(a) + parseInt(b);
-  } else {
-    return "please enter value data";
-  }
-}
-console.log(gentleSum("122sfdf", 5));
-console.log(gentleSum("Hello World", 5));
-console.log(gentleSum("234asdfsdf", "232sdffgff"));
-console.log(gentleSum(7, 5));
 
 function gentleSum(a, b) {
   let c = parseInt(a);
