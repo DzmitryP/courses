@@ -41,3 +41,24 @@ function del(obj, key) {
 }
 
 console.log(del({ name: "peter", age: 22 }, "dfgfd"));
+// /////////////пример 
+// function Calculator() {
+//     this.read = function () {
+//      this.a = +prompt('введите 1 число');
+//      this.b = +prompt('введите 2 число');
+//     }
+//     this.sum = function(){
+//         this.a + this.b
+//         return this.a + this.b;
+//     }
+//     this.mul = function(){
+//         this.a * this.b
+//         return this.a*this.b;
+//     }
+// }
+
+
+// var calculator = new Calculator();
+// calculator.read();
+// alert('Sum=' + calculator.sum());
+// alert('Mul' + calculator.mul());
