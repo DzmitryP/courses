@@ -48,11 +48,11 @@ console.log(del({ name: "peter", age: 22 }, "dfgfd"));
 //      this.b = +prompt('введите 2 число');
 //     }
 //     this.sum = function(){
-//         this.a + this.b
+//   
 //         return this.a + this.b;
 //     }
 //     this.mul = function(){
-//         this.a * this.b
+//
 //         return this.a*this.b;
 //     }
 // }
