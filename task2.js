@@ -62,3 +62,15 @@ console.log(del({ name: "peter", age: 22 }, "dfgfd"));
 // calculator.read();
 // alert('Sum=' + calculator.sum());
 // alert('Mul' + calculator.mul());
+
+//пример сумма элелементов цикла
+// function sumG5(arr) {
+//  let sum = 0;
+//  for (let i =0; i < arr.length; i++){
+//     if (arr[i] > 5) {
+//         sum += arr[i];
+//     }   
+// }
+// return sum;
+// }
+// console.log(sumG5([4, 6, 10, 2, 7]));
