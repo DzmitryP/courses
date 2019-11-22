@@ -28,3 +28,13 @@ let arr = ["HTML", "JavaScript", "CSS"];
 let sorted = independentSort(arr);
 console.log(arr);
 console.log(sorted);
+// найти сумму чисел больше нуля
+// function sum(...args){
+
+//     return args.filter(function(num){
+//         return num>0;
+//     }).reduce(function(sum, current){
+//         return sum+current
+//     }, 0);
+// }
+// console.log(sum(-1, 2, 4, 0, 4));
