@@ -1,0 +1,8 @@
+// function delay(ms){
+//     let promise = new Promise(function(resolve){
+//         setTimeout(()=>resolve(), 3000);
+//     })
+//     return promise;
+// }
+
+// delay(3000).then(() => alert('выполнить через 3 сек'));
