@@ -1,0 +1,33 @@
+// https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json
+const HEROES_CONTAINER_ELEMENT = document.querySelector(".heroes_container");
+
+const getSuperheroes = () => {
+    return fetch('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json')
+        .then(response => response.json())
+        .then(heroesArray => {
+            heroesArray.length = 10;
+            console.log(heroesArray);
+            return heroesArray;
+        });
+};
+
+const createHeroHTMLElement = ({ name, images: { lg: heroImage } }) => {
+    let divContainer = document.createElement('div');
+    divContainer.className = 'heroes_container';
+    document.body.append(divContainer);
+
+    const images1 = document.createElement('img');
+    images1.src = heroImage;
+    images1.className = 'imageHero';
+    divContainer.appendChild(images1);
+
+    const names = document.createElement('p');
+    names.className = 'heroNames';
+    names.innerHTML = name;
+    divContainer.appendChild(names);
+};
+
+getSuperheroes().then(superheroes => {
+    superheroes.map(createHeroHTMLElement);
+});
+
