@@ -1,0 +1,96 @@
+// https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json
+const HEROES_CONTAINER_ELEMENT = document.querySelector(".heroes_container");
+
+const getSuperheroes = () => {
+    return fetch('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json')
+        .then(response => response.json())
+        .then(heroesArray => {
+            heroesArray.length = 10;
+            console.log(heroesArray);
+            return heroesArray;
+        });
+};
+const heroeImages = [];
+let imageToShowId = 0;
+const heroNames = [];
+const alignment = [];
+const heroRace = [];
+
+const divContainer = document.createElement('div');
+divContainer.classList.add('heroes_container');
+document.body.append(divContainer);
+
+
+const images1 = document.createElement('img');
+images1.classList.add('imageHero');
+divContainer.append(images1);
+
+
+const names = document.createElement('p');
+names.classList.add('heroNames');
+divContainer.append(names);
+
+const align = document.createElement('p');
+align.classList.add('heroNames');
+divContainer.append(align);
+
+const race = document.createElement('p');
+race.classList.add('heroNames');
+divContainer.append(race);
+
+const buttonContainer = document.createElement('div');
+buttonContainer.classList.add('buttonContainer')
+document.body.append(buttonContainer);
+const buttonNext = document.createElement('button');
+buttonNext.innerHTML = 'Next';
+const buttonPrev = document.createElement('button')
+buttonPrev.innerHTML = 'Back';
+buttonPrev.classList.add('button');
+buttonNext.classList.add('button');
+buttonContainer.append(buttonPrev, buttonNext);
+
+
+getSuperheroes().then(superheroes => {
+    superheroes.map(hero => {
+        heroeImages.push(hero.images.lg);
+        heroNames.push(hero.name);
+        alignment.push(hero.biography.alignment);
+        heroRace.push(hero.appearance.race)
+    })
+    console.log(heroeImages);
+    images1.src = superheroes[0].images.lg;
+    names.innerHTML = heroNames[0];
+    align.innerHTML = `alignments: ${alignment[0]}`;
+    race.innerHTML = `race: ${heroRace[0]}`;
+}
+);
+
+let showNextImage = () => {
+    imageToShowId++;
+    console.log('Hi');
+    if (imageToShowId > heroeImages.length - 1) imageToShowId = 0;
+    images1.src = heroeImages[imageToShowId];
+    names.innerHTML = heroNames[imageToShowId];
+    align.innerHTML = `alignment: ${alignment[imageToShowId]}`;
+    race.innerHTML = `race: ${heroRace[imageToShowId]}`;
+
+}
+let showPrevImage = () => {
+    imageToShowId--;
+    console.log('Bye');
+    if (imageToShowId < 0) imageToShowId = heroeImages.length - 1;
+    images1.src = heroeImages[imageToShowId];
+    names.innerHTML = heroNames[imageToShowId];
+    align.innerHTML = `alignment: ${alignment[imageToShowId]}`;
+    race.innerHTML = `race: ${race[imageToShowId]}`;
+}
+
+buttonNext.addEventListener('click', showNextImage);
+buttonPrev.addEventListener('click', showPrevImage);
+
+// setInterval(() => {
+//     imageToShowId++;
+//     if (imageToShowId > heroeImages.length - 1) imageToShowId = 0;
+//     console.log(imageToShowId);
+//     images1.src = heroeImages[imageToShowId];
+// }, 2000);
